@@ -11,7 +11,7 @@ def cleanup_text(text):
 	return "".join([c if ord(c) < 128 else "" for c in text]).strip()
 
 
-def recognize_image(input_image, output_path, language=None, allowlist=None, rotation_info=None)
+def recognize_text(input_image, output_path, language=None, allowlist=None, rotation_info=None)
 	image = cv2.imread(input_image)
 	reader = Reader([language], allowlist = allowlist, rotation_info = rotation_info)
 	results = reader.readtext(image)
@@ -35,4 +35,4 @@ def recognize_image(input_image, output_path, language=None, allowlist=None, rot
 	cv2.imwrite(output_path, image)
 
 
-recognize_image('input.png', 'output.png')
+recognize_text('input.png', 'output.png')
